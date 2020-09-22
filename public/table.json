@@ -1,40 +1,88 @@
 {
-    "list": [{
+    "list": [
+        {
             "id": 1,
-            "name": "张三",
-            "money": 123,
-            "address": "广东省东莞市长安镇",
-            "state": "成功",
-            "date": "2019-11-1",
-            "thumb": "https://lin-xin.gitee.io/images/post/wms.png"
+            "collectId": "12",
+            "patientId": "124",
+            "patientName": "张*",
+            "task" : "rey复杂图形",
+            "fileType": ".txt",
+            "fileName": "明朝那些事儿.txt",
+            "fileSize": "20KB",
+            "lastModifiedTime": "2020.09.13 10:10:10",
+            "referred" : true
         },
         {
             "id": 2,
-            "name": "李四",
-            "money": 456,
-            "address": "广东省广州市白云区",
-            "state": "成功",
-            "date": "2019-10-11",
-            "thumb": "https://lin-xin.gitee.io/images/post/node3.png"
+            "collectId": "13",
+            "patientId": "125",
+            "patientName": "张*",
+            "task" : "rey复杂图形",
+            "fileType": ".txt",
+            "fileName": "清朝那些事儿.txt",
+            "fileSize": "20KB",
+            "lastModifiedTime": "2020.09.13 10:10:10",
+            "referred" : false
         },
         {
             "id": 3,
-            "name": "王五",
-            "money": 789,
-            "address": "湖南省长沙市",
-            "state": "失败",
-            "date": "2019-11-11",
-            "thumb": "https://lin-xin.gitee.io/images/post/parcel.png"
+            "collectId": "14",
+            "patientId": "126",
+            "patientName": "张*",
+            "task" : "rey复杂图形",
+            "fileType": ".txt",
+            "fileName": "秦朝那些事儿.txt",
+            "fileSize": "20KB",
+            "lastModifiedTime": "2020.09.12 10:10:10",
+            "referred" : false
         },
         {
             "id": 4,
-            "name": "赵六",
-            "money": 1011,
-            "address": "福建省厦门市鼓浪屿",
-            "state": "成功",
-            "date": "2019-10-20",
-            "thumb": "https://lin-xin.gitee.io/images/post/notice.png"
+            "collectId": "15",
+            "patientId": "124",
+            "patientName": "张*",
+            "task" : "stroop",
+            "fileType": ".txt",
+            "fileName": "明朝那些事儿.txt",
+            "fileSize": "20KB",
+            "lastModifiedTime": "2020.02.13 10:10:10",
+            "referred" : true
+        },
+        {
+            "id": 5,
+            "collectId": "16",
+            "patientId": "128",
+            "patientName": "张*",
+            "task" : "rey复杂图形",
+            "fileType": ".pdf",
+            "fileName": "明朝那些事儿.pdf",
+            "fileSize": "20KB",
+            "lastModifiedTime": "2020.09.13 10:10:10",
+            "referred" : true
+        },
+        {
+            "id": 6,
+            "collectId": "17",
+            "patientId": "129",
+            "patientName": "张*",
+            "task" : "rey复杂图形",
+            "fileType": ".txt",
+            "fileName": "明朝那些事儿.txt",
+            "fileSize": "20KB",
+            "lastModifiedTime": "2020.09.13 10:10:10",
+            "referred" : true
+        },
+        {
+            "id": 9,
+            "collectId": "18",
+            "patientId": "133",
+            "patientName": "张*",
+            "task" : "rey复杂图形",
+            "fileType": ".pdf",
+            "fileName": "明朝那些事儿.pdf",
+            "fileSize": "20KB",
+            "lastModifiedTime": "2020.09.13 10:10:10",
+            "referred" : true
         }
-    ],
-    "pageTotal": 4
+    ]
 }

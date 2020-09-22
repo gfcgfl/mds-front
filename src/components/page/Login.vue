@@ -28,6 +28,7 @@
 </template>
 
 <script>
+    import request from '../../utils/request';
 export default {
     data: function() {
         return {
@@ -36,24 +37,51 @@ export default {
                 password: '123123',
             },
             rules: {
-                username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
-                password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
+                username: [
+                    {
+                        required: true,
+                        message: '请输入用户名',
+                        trigger: 'blur'
+                    }
+                ],
+                password: [
+                    {
+                        required: true,
+                        message: '请输入密码',
+                        trigger: 'blur'
+                    }
+                ],
             },
         };
     },
+    components:{
+        request
+    },
     methods: {
         submitForm() {
-            this.$refs.login.validate(valid => {
-                if (valid) {
-                    this.$message.success('登录成功');
-                    localStorage.setItem('ms_username', this.param.username);
-                    this.$router.push('/');
-                } else {
-                    this.$message.error('请输入账号和密码');
-                    console.log('error submit!!');
-                    return false;
-                }
-            });
+			// console.log(this);
+            request.post('/mds/login', {
+                userName: this.param.userName,
+                password: this.param.password
+            })
+                .then(res => {
+                    console.log(res)
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+            // this.$refs.login.validate(valid => {
+            //     // console.log(valid);
+            //     if (valid) {
+            //         this.$message.success('登录成功');
+            //         localStorage.setItem('ms_username', this.param.username);
+            //         this.$router.push('/');
+            //     } else {
+            //         this.$message.error('请输入账号和密码');
+            //         console.log('error submit!!');
+            //         return false;
+            //     }
+            // });
         },
     },
 };
