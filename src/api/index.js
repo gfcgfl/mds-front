@@ -40,3 +40,26 @@ export const downloadFile = (param, timeout) => {
     }
 
 };
+
+//获取用户诊断历程（时间流）信息
+export const fetchTimeFLowEvent = patientId => {
+    return request({
+        url: '/mds/timeflow/' + patientId,
+        method: 'get'
+    });
+};
+
+//获取dashboard页信息
+export const dashboardRequest = () => {
+    return request({
+        url: '/mds/dashboard',
+        method: 'get'
+    });
+};
+
+export const fetchPatientBasicInfo = () => {
+    return request({
+        url: '/mds/patients/basic',
+        method: 'get'
+    });
+};

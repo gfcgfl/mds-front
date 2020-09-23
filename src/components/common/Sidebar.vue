@@ -63,13 +63,32 @@ export default {
                 },
                 {
                     icon: 'el-icon-lx-cascades',
-                    index: 'table',
+                    index: 'file',
                     title: '文件管理'
                 },
                 {
                     icon: 'el-icon-lx-copy',
-                    index: 'tabs',
-                    title: 'tab选项卡'
+                    index: 'patient',
+                    // index: 'tabs',
+                    title: '患者管理'
+                },
+                {
+                    icon: 'el-icon-circle-plus',
+                    index: 'newcollect',
+                    // index: 'tabs',
+                    title: '新建采集'
+                },
+                {
+                    icon: 'el-icon-view',
+                    index: 'collectshow',
+                    // index: 'tabs',
+                    title: '采集查看'
+                },
+                {
+                    icon: 'el-icon-notebook-1',
+                    index: 'timeflow',
+                    // index: 'tabs',
+                    title: '诊断流程'
                 },
                 {
                     icon: 'el-icon-lx-calendar',
@@ -125,10 +144,15 @@ export default {
                         }
                     ]
                 },
+                // {
+                //     icon: 'el-icon-lx-global',
+                //     index: 'i18n',
+                //     title: '国际化功能'
+                // },
                 {
-                    icon: 'el-icon-lx-global',
-                    index: 'i18n',
-                    title: '国际化功能'
+                    icon: 'el-icon-question',
+                    index: 'help',
+                    title: '系统帮助'
                 },
                 {
                     icon: 'el-icon-lx-warn',

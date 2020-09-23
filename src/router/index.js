@@ -25,14 +25,29 @@ export default new Router({
                     meta: { title: '自定义图标' }
                 },
                 {
-                    path: '/table',
-                    component: () => import(/* webpackChunkName: "table" */ '../components/page/BaseTable.vue'),
-                    meta: { title: '基础表格' }
+                    path: '/file',
+                    component: () => import(/* webpackChunkName: "table" */ '../components/page/FileManage.vue'),
+                    meta: { title: '文件管理' }
                 },
                 {
-                    path: '/tabs',
+                    path: '/patient',
+                    component: () => import(/* webpackChunkName: "tabs" */ '../components/page/PatientManage.vue'),
+                    meta: { title: '患者管理' }
+                },
+                {
+                    path: '/newcollect',
                     component: () => import(/* webpackChunkName: "tabs" */ '../components/page/Tabs.vue'),
-                    meta: { title: 'tab选项卡' }
+                    meta: { title: '新建采集' }
+                },
+                {
+                    path: '/collectshow',
+                    component: () => import(/* webpackChunkName: "tabs" */ '../components/page/Tabs.vue'),
+                    meta: { title: '采集查看' }
+                },
+                {
+                    path: '/timeflow',
+                    component: () => import(/* webpackChunkName: "tabs" */ '../components/page/TimeFlow.vue'),
+                    meta: { title: '诊断流程' }
                 },
                 {
                     path: '/form',
@@ -76,10 +91,10 @@ export default new Router({
                     meta: { title: '拖拽弹框' }
                 },
                 {
-                    // 国际化组件
-                    path: '/i18n',
-                    component: () => import(/* webpackChunkName: "i18n" */ '../components/page/I18n.vue'),
-                    meta: { title: '国际化' }
+                    // 帮助
+                    path: '/help',
+                    component: () => import(/* webpackChunkName: "i18n" */ '../components/page/help.vue'),
+                    meta: { title: '系统帮助' }
                 },
                 {
                     // 权限页面
