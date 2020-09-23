@@ -85,6 +85,12 @@ export default {
                     title: '采集查看'
                 },
                 {
+                    icon: 'el-icon-s-marketing',
+                    index: 'modeltraining',
+                    // index: 'tabs',
+                    title: '模型训练和分析'
+                },
+                {
                     icon: 'el-icon-notebook-1',
                     index: 'timeflow',
                     // index: 'tabs',

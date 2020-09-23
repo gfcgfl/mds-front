@@ -45,6 +45,11 @@ export default new Router({
                     meta: { title: '采集查看' }
                 },
                 {
+                    path: '/modeltraining',
+                    component: () => import(/* webpackChunkName: "tabs" */ '../components/page/ModelTraining.vue'),
+                    meta: { title: '模型训练与分析' }
+                },
+                {
                     path: '/timeflow',
                     component: () => import(/* webpackChunkName: "tabs" */ '../components/page/TimeFlow.vue'),
                     meta: { title: '诊断流程' }
