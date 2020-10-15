@@ -10,11 +10,14 @@
                             <div>{{role}}</div>
                         </div>
                     </div>
-                    <el-button type="primary" @click="gotoHelp">系统帮助</el-button>
-                    <el-button type="warning">患者管理</el-button>
-                    <el-button type="info">文件管理</el-button>
-                    <el-button type="success">新建采集</el-button>
-                    <el-button type="danger">采集查看</el-button>
+                    <div class="">
+                        <el-button type="primary" @click="gotoHelp">系统帮助</el-button>
+                        <el-button type="warning" @click="gotoPatient">患者管理</el-button>
+                        <el-button type="info" @click="gotoFile">文件管理</el-button>
+                        <el-button type="success" @click="gotoNewCollect">新建采集</el-button>
+                        <el-button type="danger" @click="gotoCollecResultShow">采集查看</el-button>
+                    </div>
+
                 </el-card>
                 <el-card shadow="hover" style="height:252px;">
                     <div slot="header" class="clearfix">
@@ -263,6 +266,18 @@
         methods: {
             gotoHelp() {
                 this.$router.push('/help');
+            },
+            gotoPatient() {
+                this.$router.push('/patient');
+            },
+            gotoFile() {
+                this.$router.push('/file');
+            },
+            gotoNewCollect() {
+                this.$router.push('/newcollect');
+            },
+            gotoCollecResultShow() {
+                this.$router.push('/collectshow');
             }
             // changeDate() {
             //     const now = new Date().getTime();

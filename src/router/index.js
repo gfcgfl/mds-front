@@ -36,18 +36,23 @@ export default new Router({
                 },
                 {
                     path: '/newcollect',
-                    component: () => import(/* webpackChunkName: "tabs" */ '../components/page/Tabs.vue'),
+                    component: () => import(/* webpackChunkName: "tabs" */ '../components/page/CollectionPage.vue'),
                     meta: { title: '新建采集' }
                 },
                 {
                     path: '/collectshow',
-                    component: () => import(/* webpackChunkName: "tabs" */ '../components/page/Tabs.vue'),
+                    component: () => import(/* webpackChunkName: "tabs" */ '../components/page/CollectResultShow.vue'),
                     meta: { title: '采集查看' }
                 },
                 {
                     path: '/modeltraining',
                     component: () => import(/* webpackChunkName: "tabs" */ '../components/page/ModelTraining.vue'),
-                    meta: { title: '模型训练与分析' }
+                    meta: { title: '模型训练' }
+                },
+                {
+                    path: '/analysis',
+                    component: () => import(/* webpackChunkName: "tabs" */ '../components/page/Analysis.vue'),
+                    meta: { title: '辅助分析' }
                 },
                 {
                     path: '/timeflow',

@@ -65,7 +65,7 @@
                 <el-table-column width="100" prop="collectId" label="采集轮次id" align="center"></el-table-column>
                 <el-table-column width="100" prop="patientId" label="被试id" align="center"></el-table-column>
                 <el-table-column width="100" prop="patientName" label="被试姓名" align="center"></el-table-column>
-                <el-table-column width="120" prop="task" label="任务" align="center"></el-table-column>
+                <el-table-column width="150" prop="task" label="任务" align="center"></el-table-column>
                 <el-table-column width="80" prop="fileType" label="文件类型" align="center">
                     <!--                    <template slot-scope="scope">￥{{scope.row.money}}</template>-->
                 </el-table-column>
