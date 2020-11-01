@@ -32,7 +32,7 @@
                     header-cell-class-name="table-header"
             >
                 <el-table-column width="100" prop="id" label="被试id" align="center"></el-table-column>
-                <el-table-column width="100" prop="patientName" label="被试姓名" align="center"></el-table-column>
+                <el-table-column width="100" prop="name" label="被试姓名" align="center"></el-table-column>
                 <el-table-column width="100" prop="age" label="年龄" align="center"></el-table-column>
                 <el-table-column width="100" prop="gender" label="性别" align="center"></el-table-column>
                 <el-table-column width="100" prop="height" label="身高" align="center"></el-table-column>

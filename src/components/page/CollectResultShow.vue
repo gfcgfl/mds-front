@@ -79,20 +79,45 @@
         </div>
 
         <!--文本框-->
-        <el-dialog title="详情" :visible.sync="editVisible" width="30%">
-            <div style="alignment: center">
-                {{detailText}}
+        <el-dialog title="详情" :visible.sync="editVisible" width="80%">
+            <h3>{{windowTitle}}</h3>
+            <div v-show="!dataValid" style="alignment: center">
+                抱歉，数据异常或丢失
+            </div>
+            <div v-show="dataValid" style="alignment: center">
+
+                <div v-show="!empty(taskRecords)">
+                    <div v-for="(v, k, index) in taskRecords" :key="index">{{k}} :  {{v}}</div>
+                </div>
+
+                <div v-if="xueyangData !== null && !empty(xueyangData) && xueyangData.valid===true">
+                    tu
+                    <div id="echarts_box" style="width: 90%;height:90%;"></div>
+
+                </div>
+                <div v-else>
+                    血氧数据丢失或错误
+                </div>
             </div>
         </el-dialog>
     </div>
 </template>
 
+
 <script>
     import { getCollectDetailedDataByTaskId, getCollectResult } from '../../api';
     import bus from '../common/bus';
+    import echarts from 'echarts'
 
     function isStrEmpty(obj) {
         return typeof obj == 'undefined' || obj == null || obj === '';
+    }
+
+    function isEmptyObject(obj){
+        for (let n in obj) {
+            return false
+        }
+        return true;
     }
 
     const maxShowNumPerPage = 10;
@@ -115,18 +140,105 @@
                 ],
                 multipleSelection: [],
                 delList: [],
-                editVisible: false,
                 detailText: '',
                 pageTotal: 0,
                 form: {},
                 idx: -1,
-                id: -1
+                id: -1,
+                editVisible: false,
+                dataValid: true,
+                windowTitle: '',
+                taskRecords: {},
+                xueyangData: {}
             };
         },
         created() {
+            let myChart = echarts.init(document.getElementById('echarts_box'));
+            console.log('------------');
+            console.log(myChart);
+            let opt = {
+                title: {
+                    text: '一天用电量分布',
+                    subtext: '纯属虚构'
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'cross'
+                    }
+                },
+                toolbox: {
+                    show: true,
+                    feature: {
+                        saveAsImage: {}
+                    }
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: ['00:00', '01:15', '02:30', '03:45', '05:00', '06:15', '07:30', '08:45', '10:00', '11:15', '12:30', '13:45', '15:00', '16:15', '17:30', '18:45', '20:00', '21:15', '22:30', '23:45']
+                },
+                yAxis: {
+                    type: 'value',
+                    axisLabel: {
+                        formatter: '{value} W'
+                    },
+                    axisPointer: {
+                        snap: true
+                    }
+                },
+                visualMap: {
+                    show: false,
+                    dimension: 0,
+                    pieces: [{
+                        lte: 6,
+                        color: 'green'
+                    }, {
+                        gt: 6,
+                        lte: 8,
+                        color: 'red'
+                    }, {
+                        gt: 8,
+                        lte: 14,
+                        color: 'green'
+                    }, {
+                        gt: 14,
+                        lte: 17,
+                        color: 'red'
+                    }, {
+                        gt: 17,
+                        color: 'green'
+                    }]
+                },
+                series: [
+                    {
+                        name: '用电量',
+                        type: 'line',
+                        smooth: true,
+                        data: [300, 280, 250, 260, 270, 300, 550, 500, 400, 390, 380, 390, 400, 500, 600, 750, 800, 700, 600, 400],
+                        markArea: {
+                            data: [ [{
+                                name: '早高峰',
+                                xAxis: '07:30'
+                            }, {
+                                xAxis: '10:00'
+                            }], [{
+                                name: '晚高峰',
+                                xAxis: '17:30'
+                            }, {
+                                xAxis: '21:15'
+                            }] ]
+                        }
+                    }
+                ]
+            };
+            myChart.setOption(opt);
             this.getData();
         },
         methods: {
+            empty(obj){
+                return isEmptyObject(obj);
+            },
             getData() {
 
                 getCollectResult().then(res => {
@@ -172,6 +284,13 @@
                 getCollectDetailedDataByTaskId(collectId, patientId, taskId).then(res => {
                     if (res.code === 200) {
                         console.log(res.data);
+                        let data = res.data;
+
+                        this.dataValid = data.valid;
+                        this.windowTitle = data.taskName ? data.taskName: "错误";
+                        this.taskRecords = data.records ? data.records : {};
+                        this.xueyangData = data.bloodoxygenFileData !== null ? data.bloodoxygenFileData : {};
+                        this.editVisible = true;
                     }
                 })
             },
